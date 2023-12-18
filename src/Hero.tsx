@@ -8,7 +8,7 @@ const Hero = () => {
           <h4 className="text-[1.4375rem] font-Marcellus   leading-[1.75rem] ">This new collection brings with it the most exciting colors</h4>
           <button className="rounded-sm py-[15px] px-[1.875rem] bg-[#FFFEFE] text-black">SHOP NOW</button>
         </div>
-        <img className="md:w-1/2" src="hero section.png" alt="" />
+        <img className="md:w-1/2" src="hero section.webp" alt="" />
       </section>
     </>
   );
