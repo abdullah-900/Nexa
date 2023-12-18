@@ -47,7 +47,7 @@ const Footer = () => {
           <ul className="text-[1.125rem] font-medium leading-[2.4401rem] ">
             <li>support@euphoria.in</li>
             <li>Eklingpura Chouraha, Ahmedabad Main Road</li>
-            <li>(NH 8- Near Mahadev Hotel) Udaipur, India- 313002</li>
+            <li>(NH 8- Near Mahadev Hotel)</li>
             <li>&nbsp;</li>
             <li>&nbsp;</li>
           </ul>
