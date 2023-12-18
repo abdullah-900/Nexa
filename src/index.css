@@ -68,7 +68,7 @@
 @font-face {
     font-family: 'Core-Sans-C75';
     src: url('/public/fonts/CoreSansC-75ExtraBold.ttf') format('truetype');
-    font-weight: bold;
+    font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
@@ -128,9 +128,15 @@
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'Marcellus';
+    src: url('/public/fonts/Marcellus-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
 #id{
- 
     width: 100vw;
     height: 100vh;
 }
