@@ -17,6 +17,7 @@ export default {
       'Poppins':['Poppins','sans-serif'],
       'Roboto':['Roboto','sans-serif'],
       'Mintaka':['Mintaka','sans-serif'],
+      'Marcellus':['Marcellus','sans-serif']
       },
       colors:{
         'ed':'#EDEEF2',
@@ -24,10 +25,11 @@ export default {
         '80':'#807D7E',
         'f6':'#F6F6F6',
         'be':'#BEBCBD',
-        '8a':'#8A33FD'
+        '8a':'#8A33FD',
+        '46':'#464E4E',
       },
     },
   },
-  plugins: [],
+
 }
 
