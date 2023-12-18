@@ -11,10 +11,10 @@ const Nav = () => {
       </ul>
       <div className=" flex items-center justify-center gap-3 ">
         <div className="rounded-lg bg-f6">
-        <img className="p-3" src="user.svg" alt="" />
+        <img className="p-3 cursor-pointer" src="user.svg" alt="" />
         </div>
         <div className="rounded-lg bg-f6 ">
-        <img className="p-3" src="shopping cart.svg" alt="" />
+        <img className="p-3 cursor-pointer" src="shopping cart.svg" alt="" />
         </div>
       </div>
      </div>
