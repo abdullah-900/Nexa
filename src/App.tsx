@@ -1,20 +1,17 @@
-import Footer from "./Footer"
-import Hero from "./Hero"
-import Nav from "./Nav"
-import Products from "./Products"
+import Homepage from "./pages/Homepage";
+import Cartpage from "./pages/Cartpage";
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
- 
   return (
-    <>
-    <Nav/>
-    <main>
-    <Hero/>
-    <Products/>
-      <Footer/>
-    </main>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/Cartpage" element={<Cartpage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
