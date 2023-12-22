@@ -17,13 +17,13 @@ const Nav:React.FC<{cartbgcolor:string,carticoncolor:string}> = ({cartbgcolor,ca
      <img src="Logo.svg" alt="" />
       <ul className=" flex justify-center items-center gap-10 text-[1.375rem] font-Causten text-80">
       </ul>
-      <div className=" flex items-center cursor-pointer justify-center gap-3">
-        <div className="rounded-lg p-3 bg-f6">
+      <div className=" flex items-center  justify-center gap-3">
+        <button className="rounded-lg p-3 bg-f6">
         <Usericon color="#807D7E"/>
-        </div>
-        <div onMouseEnter={Handlehover} onMouseLeave={Handlehover} onClick={()=>navigate('/Cartpage')} className={`rounded-lg ${cartbgcolor} hover:bg-8a p-3`}>
+        </button>
+        <button onMouseEnter={Handlehover} onMouseLeave={Handlehover} onClick={()=>navigate('/Cartpage')} className={`rounded-lg ${cartbgcolor} hover:bg-8a p-3`}>
        <Carticon color={!Ishover?carticoncolor:'#FFFFFF'}/>
-        </div>
+        </button>
       </div>
      </div>
     </nav>
