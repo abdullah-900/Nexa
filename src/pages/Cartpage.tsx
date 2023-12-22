@@ -2,7 +2,6 @@
 import Nav from "../components/Nav"
 import Footer from "../components/Footer"
 import Cartproducts from "../components/Cartproducts"
-import Subtotal from "../components/Subtotal"
 const Cartpage = () => {
   return (
    <>
