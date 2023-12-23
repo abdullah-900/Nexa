@@ -12,7 +12,7 @@ const Nav:React.FC<{cartbgcolor:string,carticoncolor:string}> = ({cartbgcolor,ca
   const navigate = useNavigate();
   return (
     <>
-    <nav  className="flex justify-center items-center h-[6.75rem]">
+    <nav  className="flex justify-center items-center h-[6.75rem] border-b-[.0625rem] border-[#BEBCBD]">
      <div className=" justify-between px-5 xl:px-[6.375rem] py-[1.9375rem] flex w-full ">
      <img src="Logo.svg" alt="" />
       <ul className=" flex justify-center items-center gap-10 text-[1.375rem] font-Causten text-80">
