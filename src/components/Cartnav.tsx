@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"
 const Cartnav = () => {
   return (
-   <article className="flex flex-col gap-[30px] w-full md:w-[30.125rem]   h-[5.6875rem] ml-[1.5625rem] md:ml-[6.25rem] mt-[3.125rem]  ">
+   <article className="flex flex-col gap-[30px] w-full md:w-[30.125rem]   h-[5.6875rem] ml-[1.25rem] md:ml-[6.25rem] mt-[3.125rem]  ">
 <div className="flex gap-[.9375rem]">
   <Link to="/" className="font-Causten text-80 text-[1.125rem] font-medium leading-[1.375rem] ">Home</Link>
   <img src="left (Stroke).svg" alt="" />
