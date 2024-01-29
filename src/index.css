@@ -140,3 +140,7 @@
     width: 100vw;
     height: 100vh;
 }
+.Toastify__toast-container:hover .Toastify__toast {
+    cursor: pointer;
+  }
+  
