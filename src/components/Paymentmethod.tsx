@@ -5,7 +5,7 @@ const Paymentmethod = () => {
       <article className="w-full lg:w-[47.75rem]">
         <div className="flex items-center gap-[1.1875rem]">
           <input className="rounded-full cursor-pointer" type="checkbox" id="Cash on delivery"/>
-          <label htmlFor="Cash on delivery" className="flex flex-col gap-[.3125rem]">
+          <label htmlFor="Cash on delivery" className="cursor-pointer flex flex-col gap-[.3125rem]">
             <span className="font font-Causten font-bold text-[1.25rem] text-3c">
               Cash on delivery
             </span>
@@ -18,7 +18,7 @@ const Paymentmethod = () => {
         <div className="flex flex-col gap-[1.875rem] w-full">
           <div className="flex items-center gap-[1.1875rem]">
             <input  className="rounded-full cursor-pointer" type="checkbox" id="Credit Card"  />
-            <label htmlFor="Credit Card" className="flex flex-col gap-[.3125rem]">
+            <label htmlFor="Credit Card" className="flex cursor-pointer flex-col gap-[.3125rem]">
               <span className="font font-Causten font-bold text-[1.25rem] text-3c">
                 Credit Card
               </span>
