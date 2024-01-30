@@ -4,7 +4,7 @@ interface Ptype {
   id: number;
   name: string;
   img: string;
-  price: string;
+  price: number;
 quantity: number;
 }
  type onAdd = (product:Ptype) => void;
@@ -23,7 +23,7 @@ product,
         <h2 id="product-name" className="font-Causten font-semibold">{product.name}</h2>
         <div className="rounded-lg bg-f6 w-[5.1444rem] h-[2.2862rem]  flex justify-center items-center">
           <span className="text-3c font-Causten font-bold text-[.875rem]">
-            {product.price}
+            {`${product.price} EGP`}
           </span>
         </div>
       </div>
