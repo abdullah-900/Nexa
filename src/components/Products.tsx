@@ -14,7 +14,7 @@ const Products = () => {
   const [cartItems, setCartItems] = useState<Ptype[]>([]);
   const navigate = useNavigate();
   const handleNavigate = () => {
-    navigate('/Cartpage'); // Navigate to the "/about" route
+    navigate('/Cartpage');
   };
   const notifyProductAdded =(pname:string)=>{
     toast(`${pname} Added To Cart`, { pauseOnHover: true })
@@ -50,7 +50,7 @@ const handleAddToCart = (product: Ptype) => {
 
   return (
     
-    <section className=' p-14 flex flex-col justify-center items-center gap-10'>
+    <section id='products' className=' p-14 flex flex-col justify-center items-center gap-10'>
       <h2 className='text-[2.6875rem] leading-[2.6875rem] font-Marcellus'>Our Products</h2>
       <div className='grid gap-10 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-12' >
       {products.map((p) => ( 
