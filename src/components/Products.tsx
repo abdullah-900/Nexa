@@ -7,11 +7,18 @@ interface Ptype {
   id: number;
   name: string;
   img: string;
-  price: string;
+  price: number;
 quantity: number;
 }
 const Products = () => {
   const [cartItems, setCartItems] = useState<Ptype[]>([]);
+  useEffect(()=>{
+const orders=localStorage.getItem('product');
+if (orders!=null) {
+  const order=JSON.parse(orders);
+  setCartItems(order);
+}
+  },[]) 
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate('/Cartpage');
@@ -23,10 +30,10 @@ const notifyalreadyAdded =(pname:string)=>{
   toast(`${pname} already in Cart`, { pauseOnHover: true })
 }
   const products=[
-    {id:20,name:'Rose Shimmer',img:'lip1.jpeg',price:'200 EGP', quantity:1},
-    {id:10,img:'lip2.jpeg', name:'Coral Crush', price:'230 EGP', quantity:1},
+    {id:20,name:'Rose Shimmer',img:'lip1.jpeg',price:200, quantity:1},
+    {id:10,img:'lip2.jpeg', name:'Coral Crush', price:230, quantity:1},
   ]
-console.log(cartItems)
+
 
 const handleAddToCart = (product: Ptype) => {
   const isincart=cartItems.find((item) => item.id === product.id) 
