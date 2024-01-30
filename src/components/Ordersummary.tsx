@@ -1,7 +1,23 @@
-
-
+// @ts-nocheck
+import { useEffect, useState } from "react"
 
 const Ordersummary = () => {
+   const [orders,setOrders]=useState([])
+useEffect(()=>{
+   const fetchOrders=()=>{
+      const orders=localStorage.getItem('product')
+      if (orders!=null){
+         const order=JSON.parse(orders)
+         setOrders(order)
+      }
+      }
+      fetchOrders()
+},[])
+
+const totalPrice = orders.reduce((accumulator, order) => {
+   return accumulator + order.price; 
+ }, 0); 
+
   return (
     <section className="flex flex-col w-full md:w-[22.3125rem]  justify-center p-5 md:p-10">
         <h1 className="font-Core-Sans-C65 text-[1.5rem]   text-3c">Order Summary</h1>
@@ -21,17 +37,17 @@ const Ordersummary = () => {
    
       <dl className="font-bold w-full md:w-80 lg:w-[22.3125rem] justify-between text-[1.125rem] text-3c tracking-[.0225rem] font-Causten">
       <div className="flex items-center justify-between w-full">
-            <dt >Sub Total </dt>
-            <dd >513.00EGP</dd>
+            <dt>Sub Total </dt>
+            <dd>{`${totalPrice} EGP`}</dd>
          </div>
          <div className="flex items-center justify-between w-full  mb-[1.625rem] ">
-            <dt >Shipping</dt>
-            <dd>5.00EGP</dd>
+            <dt>Shipping</dt>
+            <dd>5.00 EGP</dd>
          </div>
          <hr className="border-ed my-[.9375rem]" />
          <div className="flex items-center justify-between w-full ">
             <dt>Total</dt>
-            <dd>518.00EGP</dd>
+            <dd>518.00 EGP</dd>
          </div>
       </dl>
     </section>

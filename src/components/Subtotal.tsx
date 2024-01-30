@@ -1,6 +1,30 @@
-
+   // @ts-nocheck
+import { useEffect } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 const Subtotal = () => {
+   const [orders,setOrders]=useState([])
+   const [total,setTotal]=useState(0)
+   useEffect(()=>{
+      const fetchOrders=()=>{
+         const orders=localStorage.getItem('product')
+         if (orders!=null){
+            const order=JSON.parse(orders)
+            setOrders(order)
+         }
+         }
+         fetchOrders()
+   },[])
+   useEffect(()=>{
+      const calculateTotal=()=>{
+        const totalPrice = orders.reduce((accumulator, order) => {
+           return accumulator + order.price * order.quantity; 
+         }, 0); 
+         setTotal(totalPrice)
+      }
+     calculateTotal()
+     },[orders])
+     
    const navigate = useNavigate();
   return (
     <section className="w-full bg-[#f3f3f3] flex justify-center items-center">
@@ -8,15 +32,15 @@ const Subtotal = () => {
         <article className="flex flex-col justify-between h-[8.3125rem]  w-[17.6875rem] text-3c text-[1.375rem] font-Causten leading-[1.625rem] tracking-[.0275rem]">
          <div className="flex items-center justify-between w-full">
             <h4 className="font-medium">Sub Total </h4>
-            <strong className="font-medium">$513.00</strong>
+            <strong className="font-medium">{`${total} EGP`}</strong>
          </div>
          <div className="flex items-center justify-between w-full  mb-[1.625rem] ">
             <h4 className="font-medium">Shipping</h4>
-            <strong className="font-medium mr-[1.375rem]">$5.00</strong>
+            <strong className="font-medium mr-[1.375rem]">30 EGP</strong>
          </div>
          <div className="flex items-center justify-between w-full ">
             <h4 className="font-bold">Grand Total</h4>
-            <strong className="font-bold">$518.00</strong>
+            <strong className="font-bold">518 EGP</strong>
          </div>
         </article>
         <hr className="w-full border-[#BEBCBD]"  />
