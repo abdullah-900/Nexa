@@ -29,13 +29,16 @@ const Cartproductdetails = () => {
     if (data!==null) {
       const filterdata=JSON.parse(data)
       for (let i = 0; i < filterdata.length; i++) {
-        if (filterdata[i].id === pid && filterdata[i].quantity > 1) {  // Edit a specific object
+        if (filterdata[i].id === pid && filterdata[i].quantity > 1) {  
             filterdata[i].quantity = filterdata[i].quantity - 1;
-            setCartProducts(filterdata)        
-        }
+            setCartProducts(filterdata)
+            localStorage.setItem('product',JSON.stringify(filterdata))      
+        } else if (filterdata[i].id === pid && filterdata[i].quantity === 1) {
+        handleDelete(pid)
+        } 
       }
-      localStorage.setItem('product',JSON.stringify(filterdata))
   }
+  
     }
   const handleDelete=(pid:number)=>{
     const data=localStorage.getItem('product')
@@ -63,7 +66,7 @@ if (data!==null) {
 <Controls onDelete={handleDelete} pid={p.id} onIncrease={handleIncrease} productNums={p.quantity} onDecrease={handleDecrease}/>
   </div>
   </header>
-  <span className="text-3c text-[1.125rem] leading-6 font-bold font-Causten  " >{p.price}</span>
+  <span className="text-3c text-[1.125rem] leading-6 font-bold font-Causten">{`${p.price} EGP`}</span>
      </article>
   )
 })
