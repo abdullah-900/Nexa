@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Controls from "./Controls"
-
+// @ts-ignore
+import {context} from "../../Context/Context.jsx"
 interface Ptype {
   id: number;
   name: string;
@@ -9,16 +10,26 @@ interface Ptype {
   quantity: number;
 }
 const Cartproductdetails = () => {
- 
   const[cartProducts,setCartProducts]=useState([])
+  // @ts-ignore
+  const {CartItemsDetails,setCartItemsDetails}=useContext(context);
+  useEffect(()=>{
+    const retriveddata = localStorage.getItem("product")
+    if(retriveddata!=null){
+      setCartProducts(JSON.parse(retriveddata))
+    }
+  },[])
   const handleIncrease=(pid:number)=>{
     const data=localStorage.getItem('product')
     if (data!==null) {
       const filterdata=JSON.parse(data)
       for (let i = 0; i < filterdata.length; i++) {
-        if (filterdata[i].id === pid) {  // Edit a specific object
+        if (filterdata[i].id === pid) { 
          filterdata[i].quantity = filterdata[i].quantity + 1;
+         filterdata[i].price = filterdata[i].priceperunit * filterdata[i].quantity;
         setCartProducts(filterdata)
+        setCartItemsDetails(filterdata)
+      
         }
       }
       localStorage.setItem('product',JSON.stringify(filterdata))
@@ -31,7 +42,9 @@ const Cartproductdetails = () => {
       for (let i = 0; i < filterdata.length; i++) {
         if (filterdata[i].id === pid && filterdata[i].quantity > 1) {  
             filterdata[i].quantity = filterdata[i].quantity - 1;
+            filterdata[i].price=filterdata[i].price - filterdata[i].priceperunit
             setCartProducts(filterdata)
+            setCartItemsDetails(filterdata)
             localStorage.setItem('product',JSON.stringify(filterdata))      
         } else if (filterdata[i].id === pid && filterdata[i].quantity === 1) {
         handleDelete(pid)
@@ -46,14 +59,10 @@ if (data!==null) {
   const filterdata=JSON.parse(data).filter((p:Ptype)=>p.id!==pid)
   localStorage.setItem('product',JSON.stringify(filterdata))
   setCartProducts(filterdata)
+  setCartItemsDetails(filterdata)
 }
   }
-  useEffect(()=>{
-    const retriveddata= localStorage.getItem("product")
-    if(retriveddata!=null ){
-      setCartProducts(JSON.parse(retriveddata))
-    }
-  },[])
+
 
   return (
   cartProducts?.map((p:Ptype)=>{
