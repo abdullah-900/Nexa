@@ -6,6 +6,7 @@ interface Ptype {
   img: string;
   price: number;
 quantity: number;
+priceperunit:number;
 }
  type onAdd = (product:Ptype) => void;
  

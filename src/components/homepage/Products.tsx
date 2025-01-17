@@ -1,24 +1,28 @@
+// @ts-nocheck
 import { useEffect, useState } from 'react';
 import Product from './Product'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
+import { useContext } from 'react';
+import {context} from '../Context/Context.jsx';
 interface Ptype {
   id: number;
   name: string;
   img: string;
   price: number;
 quantity: number;
+priceperunit:number;
 }
 const Products = () => {
-  const [cartItems, setCartItems] = useState<Ptype[]>([]);
+  const [cartItems,setCartItems]=useState([]);
   useEffect(()=>{
-const orders=localStorage.getItem('product');
-if (orders!=null) {
-  const order=JSON.parse(orders);
-  setCartItems(order);
-}
-  },[]) 
+    const retriveddata= localStorage.getItem("product")
+    if(retriveddata!=null){
+      setCartItems(JSON.parse(retriveddata))
+    }
+  },[])
+
   const navigate = useNavigate();
   const handleNavigate = () => {
     navigate('/Cartpage');
@@ -40,18 +44,12 @@ const handleAddToCart = (product: Ptype) => {
   if (isincart){  
     notifyalreadyAdded(isincart.name)
   } else{
-    setCartItems([...cartItems, product]);
+    const updatedCartItems=[...cartItems, product];
+    setCartItems(updatedCartItems);
+    localStorage.setItem("product", JSON.stringify(updatedCartItems));
     notifyProductAdded(product.name)
   }  
-
 };
-
-  useEffect(()=>{
-    if (cartItems.length > 0) {
-      localStorage.setItem("product",  JSON.stringify(cartItems));
-    }
-    },[cartItems])
-
 
 
 
@@ -61,7 +59,7 @@ const handleAddToCart = (product: Ptype) => {
       <h2 className='text-[2.6875rem] leading-[2.6875rem] font-Marcellus'>Our Products</h2>
       <div className='grid gap-10 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:gap-12' >
       {products.map((p) => ( 
-  <Product key={p.id} product={{id:p.id,name:p.name,img:p.img,price:p.price,quantity:1}} onAddProduct={handleAddToCart} />
+  <Product key={p.id} product={{id:p.id,name:p.name,img:p.img,price:p.price,quantity:1,priceperunit:p.price}} onAddProduct={handleAddToCart} />
 ))}
    <ToastContainer  autoClose={2000} onClick={handleNavigate}/>
       </div>
