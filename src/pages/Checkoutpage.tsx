@@ -1,11 +1,11 @@
 import Nav from "../components/Nav"
 import Footer from "../components/Footer"
-import Pagesnav from "../components/Pagesnav"
-import Ordersummary from "../components/Ordersummary"
+import Pagesnav from "../components/checkoutpage/Pagesnav"
+import Ordersummary from "../components/checkoutpage/Ordersummary"
 import { useLayoutEffect } from 'react';
-import Checkoutform from "../components/Checkoutform";
-import Shippingdetails from "../components/Shippingdetails";
-import Paymentmethod from "../components/Paymentmethod";
+import Checkoutform from "../components/checkoutpage/Checkoutform";
+import Shippingdetails from "../components/checkoutpage/Shippingdetails";
+import Paymentmethod from "../components/checkoutpage/Paymentmethod";
 const Checkoutpage = () => {
   useLayoutEffect(() => {
     window.scrollTo({
@@ -19,7 +19,7 @@ const Checkoutpage = () => {
     <Nav cartbgcolor="bg-8a" carticoncolor="#FFFFFF"/>
     <main>
     <Pagesnav/>
-  <section className="flex flex-col md:flex-row  justify-around p-5 md:p-20">
+  <section className="flex flex-col md:flex-row justify-between   p-5 md:p-20">
   <Checkoutform/>
   <Ordersummary/>
   </section>
